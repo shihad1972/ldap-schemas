@@ -1,0 +1,8 @@
+---
+# defaults file for ldap-schemas
+ldap_schemas:
+  - kerberos
+  - postfix
+  - samba
+  - sshkey
+  - sudo

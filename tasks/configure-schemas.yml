@@ -1,0 +1,15 @@
+---
+
+- name: copy schema files over to ldap server
+  copy:
+    src: "{{ item }}.ldif"
+    dest: "/tmp/schema-{{ item }}.ldif"
+    mode: 0644
+  with_items: "{{ ldap_schemas }}"
+
+- name: add schema to directory
+  become: true
+  script: "add-ldif.sh schema-{{ item }}"
+  args:
+    creates: "/etc/ldap/.schema-{{ item }}-config"
+  with_items: "{{ ldap_schemas }}"

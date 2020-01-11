@@ -1,0 +1,4 @@
+---
+# tasks file for ldap-schemas
+
+- import_tasks: configure-schemas.yml
